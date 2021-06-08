@@ -10,8 +10,8 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="@{/css/header.css}" rel="stylesheet" >
-    <link href="@{/css/index.css}" rel="stylesheet" >
+    <link th:href="@{/css/header.css}" rel="stylesheet" >
+    <link th:href="@{/css/index.css}" rel="stylesheet" >
 
     <title>J'Offre</title>
 </head>
@@ -19,15 +19,12 @@
 
     <header th:fragment="header_html">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" style="margin-left: 30px;" href="index.jsp"> <img src="@{/css/logo_don.jpg}"  width="30" height="30" class="d-inline-block align-top rounded-circle" alt="Logo">J'offre.ma</a>
+            <a class="navbar-brand" style="margin-left: 30px;" href="index.jsp"> <img th:src="@{/css/logo_don.jpg}"  width="30" height="30" class="d-inline-block align-top rounded-circle" alt="Logo">J'offre.ma</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-
-                    <c:choose>
-                        <c:when test="${ !empty sessionScope.user }">
+                <ul th:if="${user}" class="navbar-nav ml-auto">
                             <li class="nav-item" style="margin-right:30px;">
                                 <a class="nav-link" href="upload"><i class="fa fa-plus" aria-hidden="true"></i> Proposer un offre </a>
                             </li>
@@ -43,13 +40,11 @@
                                     <a type="button" class="dropdown-item" href="login?logout=out" > Log out </a>
                                 </div>
                             </li>
-                        </c:when>
-                        <c:otherwise>
+                </ul>
+                <ul th:unless="${user}" class="navbar-nav ml-auto">
                             <li class="nav-item">
                                 <button type="button" class="btn btn-default btn-circle btn-outline" data-toggle="modal" data-target="#connexion" >Se connecter</button>
                             </li>
-                        </c:otherwise>
-                    </c:choose>
                 </ul>
             </div>
         </nav>
