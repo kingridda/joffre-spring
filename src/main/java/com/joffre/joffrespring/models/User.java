@@ -8,9 +8,9 @@ public class User implements Serializable {
     private String idUser;
     private String firstName;
     private String lastName;
-    private List<com.JOffre.Model.Offre> offers ;
-    private List<com.JOffre.Model.Offre> favorites ;
-    private List<com.JOffre.Model.Message> messages;
+    private List<com.joffre.joffrespring.models.Offre> offers ;
+    private List<com.joffre.joffrespring.models.Offre> favorites ;
+    private List<com.joffre.joffrespring.models.Message> messages;
 
     public List<com.JOffre.Model.Offre> getFavorites() { return favorites; }
 

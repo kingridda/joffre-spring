@@ -3,23 +3,23 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
+<head th:fragment="head_html">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="css/header.css" rel="stylesheet" >
-    <link href="../../webapp/css/index.css" rel="stylesheet" >
+    <link href="@{/css/header.css}" rel="stylesheet" >
+<!--    <link href="../../webapp/css/index.css" rel="stylesheet" >-->
 
     <title>J'Offre</title>
 </head>
 <body style="background-color: #FFFFFF;">
 
-    <header>
+    <header th:fragment="header_html">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" style="margin-left: 30px;" href="index.jsp"> <img src="css/logo_don.jpg" class="rounded-circle" width="30" height="30" class="d-inline-block align-top" alt="Logo">J'offre.ma</a>
+            <a class="navbar-brand" style="margin-left: 30px;" href="index.jsp"> <img src="@{/css/logo_don.jpg}"  width="30" height="30" class="d-inline-block align-top rounded-circle" alt="Logo">J'offre.ma</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -55,7 +55,7 @@
         </nav>
     </header>
     <!-- Modal -->
-    <div class="modal fade" id="connexion" tabindex="-1" role="dialog" aria-labelledby="connexionLabel" aria-hidden="true" >
+    <div th:fragment="modal_html" class="modal fade" id="connexion" tabindex="-1" role="dialog" aria-labelledby="connexionLabel" aria-hidden="true" >
         <div class="modal-dialog modal-dialog-centered" role="document" >
             <div class="modal-content" >
                 <div class="modal-header" style="background-color: #fafafa;">
@@ -81,12 +81,8 @@
         </div>
     </div>
 
-    <!--main content-->
-    <section  layout:fragment="content">
 
-    </section>
-
-    <footer class="bg-dark text-center text-white">
+    <footer class="bg-dark text-center text-white"  th:fragment="footer_html">
         <!-- Grid container -->
         <div class=" p-4 pb-0">
             <!-- Section: Social media -->
@@ -121,27 +117,29 @@
 
 
     <!-- js scripts-->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <div th:fragment="js_scripts_html">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
 
-    <script>
-        $('#myModal').on('shown.bs.modal', function () {
-            $('#myInput').trigger('focus')
-        })
+        <script>
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+            })
 
 
-        $(function(){
-            $("#addClass").click(function () {
-                $('#chat').addClass('popup-box-on');
-            });
+            $(function(){
+                $("#addClass").click(function () {
+                    $('#chat').addClass('popup-box-on');
+                });
 
-            $("#removeClass").click(function () {
-                $('#chat').removeClass('popup-box-on');
-            });
-        })
-    </script>
+                $("#removeClass").click(function () {
+                    $('#chat').removeClass('popup-box-on');
+                });
+            })
+        </script>
+    </div>
 </body>
 </html>

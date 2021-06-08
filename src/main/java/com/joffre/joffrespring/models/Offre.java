@@ -12,7 +12,7 @@ public class    Offre implements Serializable {
     private String description;
     private Integer city;
     private Integer category;
-    private List<com.JOffre.Model.Image> photos;
+    private List<com.joffre.joffrespring.models.Image> photos;
     private String idUser;
     private String userFirstName;
 
