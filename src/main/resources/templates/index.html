@@ -1,18 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>J'Offre</title>
-    <link href="css/index.css" rel="stylesheet" >
-    <%@ include file="WEB-INF/bootstrapIncludes.jsp" %>
 
-
-</head>
-<body style="background-color: #FFFFFF;">
-<%@ include file="WEB-INF/header.jsp" %>
-<div class="jumbotron jumbotron-fluid" style="background-image: url('css/bg.jpg');background-size: cover;background-repeat: no-repeat;">
+<div class="jumbotron jumbotron-fluid" style="background-image: url('../../webapp/css/bg.jpg');background-size: cover;background-repeat: no-repeat;">
     <div class="container">
         <h1 class="display-4">J'offre :</h1>
         <p class="lead" style="color: white"> De même que le fleuve retourne à la mer, le don de l'homme revient vers lui. </p>
@@ -53,49 +40,49 @@
                 <div class="row categories">
                                 <div class="col-md-4 card">
                                     <a href="offers?category=0">
-                                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="css/all.png" width="40">
+                                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="../../webapp/css/all.png" width="40">
                                             <div class="text-center mg-text"> <span class="mg-text">Toutes Les Catégories</span> </div>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="col-md-4 card">
                                     <a href="offers?category=1">
-                                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="css/furniture.png" width="40">
+                                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="../../webapp/css/furniture.png" width="40">
                                             <div class="text-center mg-text"> <span class="mg-text">électroménagers et meubles</span> </div>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="col-md-4 card">
                                     <a href="offers?category=2">
-                                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="css/tshirt.png" width="40">
+                                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="../../webapp/css/tshirt.png" width="40">
                                             <div class="text-center mg-text"> <span class="mg-text">vêtements</span> </div>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="col-md-4  card">
                                     <a href="offers?category=3">
-                                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="css/electronics.png" width="40">
+                                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="../../webapp/css/electronics.png" width="40">
                                             <div class="text-center mg-text"> <span class="mg-text">electroniques</span> </div>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="col-md-4 card">
                                     <a href="offers?category=4">
-                                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="css/tools.png" width="40">
+                                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="../../webapp/css/tools.png" width="40">
                                             <div class="text-center mg-text"> <span class="mg-text">outils</span> </div>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="col-md-4 card">
                                     <a href="offers?category=5">
-                                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="css/sport.png" width="40">
+                                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="../../webapp/css/sport.png" width="40">
                                             <div class="text-center mg-text"> <span class="mg-text">sport</span> </div>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="col-md-4 card">
                                     <a href="offers?category=6">
-                                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="css/file.png" width="40">
+                                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="../../webapp/css/file.png" width="40">
                                             <div class="text-center mg-text"> <span class="mg-text">autre...</span> </div>
                                         </div>
                                     </a>
@@ -105,11 +92,3 @@
         </div>
 </div>
 
-
-
-        <%@ include file="WEB-INF/bootstrapIncludeLast.jsp" %>
-    <div>
-        <%@ include file="WEB-INF/footer.jsp" %>
-    </div>
-</body>
-</html>

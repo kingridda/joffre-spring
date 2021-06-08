@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/header.css" rel="stylesheet" >
+    <link href="../../webapp/css/index.css" rel="stylesheet" >
+
+    <title>J'Offre</title>
+</head>
+<body style="background-color: #FFFFFF;">
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" style="margin-left: 30px;" href="index.jsp"> <img src="css/logo_don.jpg" class="rounded-circle" width="30" height="30" class="d-inline-block align-top" alt="Logo">J'offre.ma</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+
+                    <c:choose>
+                        <c:when test="${ !empty sessionScope.user }">
+                            <li class="nav-item" style="margin-right:30px;">
+                                <a class="nav-link" href="upload"><i class="fa fa-plus" aria-hidden="true"></i> Proposer un offre </a>
+                            </li>
+                            <li class="nav-item">
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-user" aria-hidden="true">  <c:out value="${sessionScope.user.firstName}" /> </i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a href="profile" class="dropdown-item"> profile </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a type="button" class="dropdown-item" href="login?logout=out" > Log out </a>
+                                </div>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="nav-item">
+                                <button type="button" class="btn btn-default btn-circle btn-outline" data-toggle="modal" data-target="#connexion" >Se connecter</button>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Modal -->
+    <div class="modal fade" id="connexion" tabindex="-1" role="dialog" aria-labelledby="connexionLabel" aria-hidden="true" >
+        <div class="modal-dialog modal-dialog-centered" role="document" >
+            <div class="modal-content" >
+                <div class="modal-header" style="background-color: #fafafa;">
+                    <h5 class="modal-title" id="exampleModalLabel">Authentification</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <div id="fb-root"></div>
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=266620018232985&autoLogAppEvents=1" nonce="Z43c2Xq9"></script>
+                    <script src="js/Oauth2.js"></script>
+                    <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="default"
+                         data-auto-logout-link="false" data-use-continue-as="true" onLogin="checkLoginState()"></div>
+                    <p> <span id="name"></span> </p>
+                    <form method="POST" action="login">
+                        <input type="hidden" id="username" name="username"  />
+                        <input type="hidden" id="idUser" name="idUser"  />
+                        <button type="submit button" class="btn btn-default btn-circle btn-outline" >Continuer...</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--main content-->
+    <section  layout:fragment="content">
+
+    </section>
+
+    <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class=" p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fa fa-facebook"></i
+                ></a>
+
+                <!-- Twitter -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fa fa-twitter"></i
+                ></a>
+
+                <!-- Google -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fa fa-google"></i
+                ></a>
+
+                <!-- Instagram -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fa fa-instagram"></i
+                ></a>
+
+            </section>
+        </div>
+
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);"> &#169; 2020 ENSIAS:
+            <a class="text-white" href="#">Projet JEE</a>
+        </div>
+    </footer>
+
+
+    <!-- js scripts-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+    <script>
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+
+
+        $(function(){
+            $("#addClass").click(function () {
+                $('#chat').addClass('popup-box-on');
+            });
+
+            $("#removeClass").click(function () {
+                $('#chat').removeClass('popup-box-on');
+            });
+        })
+    </script>
+</body>
+</html>
