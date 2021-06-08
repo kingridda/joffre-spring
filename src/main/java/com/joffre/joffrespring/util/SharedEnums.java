@@ -1,4 +1,4 @@
-package com.joffre.joffrespring.models;
+package com.joffre.joffrespring.util;
 
 //noTE do not change this values
 //Values used as enumeration

@@ -1,12 +1,16 @@
-package com.joffre.joffrespring.models;
+package com.joffre.joffrespring.entities;
 
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
 public class Message implements Serializable {
+
+
+    @Id
+    Long messageId;
     String senderId;
     String receiverId;
-    Long messageId;
     Timestamp dateMessage;
     String message;
 

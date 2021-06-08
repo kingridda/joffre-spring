@@ -1,7 +1,6 @@
 package com.joffre.joffrespring.controllers;
 
-import com.joffre.joffrespring.models.Offre;
-import com.joffre.joffrespring.models.User;
+import com.joffre.joffrespring.entities.Offre;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

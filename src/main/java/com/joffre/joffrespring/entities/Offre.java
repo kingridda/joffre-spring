@@ -1,18 +1,21 @@
-package com.joffre.joffrespring.models;
+package com.joffre.joffrespring.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
-public class    Offre implements Serializable {
+@Entity
+public class Offre implements Serializable {
 
+    @Id
     private Long offerId;
     private String titre;
     private Timestamp date;
     private String description;
     private Integer city;
     private Integer category;
-    private List<com.joffre.joffrespring.models.Image> photos;
     private String idUser;
     private String userFirstName;
 
@@ -61,14 +64,6 @@ public class    Offre implements Serializable {
 
     public void setScore(Integer score) {
         this.score = score;
-    }
-
-    public List<com.joffre.joffrespring.models.Image> getPhotos() {
-        return photos;
-    }
-
-    public void setPhotos(List<com.joffre.joffrespring.models.Image> photos) {
-        this.photos = photos;
     }
 
     public String getIdUser() {
