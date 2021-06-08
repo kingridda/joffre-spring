@@ -12,15 +12,15 @@ public class User implements Serializable {
     private List<com.joffre.joffrespring.models.Offre> favorites ;
     private List<com.joffre.joffrespring.models.Message> messages;
 
-    public List<com.JOffre.Model.Offre> getFavorites() { return favorites; }
+    public List<com.joffre.joffrespring.models.Offre> getFavorites() { return favorites; }
 
-    public void setFavorites(List<com.JOffre.Model.Offre> favorites) { this.favorites = favorites; }
+    public void setFavorites(List<com.joffre.joffrespring.models.Offre> favorites) { this.favorites = favorites; }
 
-    public List<com.JOffre.Model.Offre> getOffers() {
+    public List<com.joffre.joffrespring.models.Offre> getOffers() {
         return offers;
     }
 
-    public void setOffers(List<com.JOffre.Model.Offre> offers) {
+    public void setOffers(List<com.joffre.joffrespring.models.Offre> offers) {
         this.offers = offers;
     }
 
@@ -48,11 +48,11 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-    public List<com.JOffre.Model.Message> getMessages() {
+    public List<com.joffre.joffrespring.models.Message> getMessages() {
         return messages;
     }
 
-    public void setMessages(List<com.JOffre.Model.Message> messages) {
+    public void setMessages(List<com.joffre.joffrespring.models.Message> messages) {
         this.messages = messages;
     }
 }

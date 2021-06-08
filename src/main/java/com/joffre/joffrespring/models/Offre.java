@@ -63,11 +63,11 @@ public class    Offre implements Serializable {
         this.score = score;
     }
 
-    public List<com.JOffre.Model.Image> getPhotos() {
+    public List<com.joffre.joffrespring.models.Image> getPhotos() {
         return photos;
     }
 
-    public void setPhotos(List<com.JOffre.Model.Image> photos) {
+    public void setPhotos(List<com.joffre.joffrespring.models.Image> photos) {
         this.photos = photos;
     }
 
