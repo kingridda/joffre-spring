@@ -86,8 +86,6 @@ public class OffreFormService {
             setError(FIELD_FILE, e.getMessage());
         }
 
-
-
         //result of the operation
         result = errors.isEmpty();
 
