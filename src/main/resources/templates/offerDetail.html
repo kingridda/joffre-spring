@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout :: head_html">
+</head>
+<body style="background-color: #FFFFFF;">
+<header th:replace="layout :: header_html">
+</header>
+
+
+<div class="container" style="padding: 50px;">
+    <div class="card">
+        <div class="wrapper row">
+            <div class="preview col-md-6">
+                <div class="preview-pic tab-content">
+                    <div class="tab-pane active" id="pic-1">
+                        <dev th:if="#{!empty offer.photos}">
+                            <img src="uploads/${offer.photos[0].getPathToImage()}" class="w-100"/>
+                        </dev>
+                    </div>
+                </div>
+            </div>
+            <div class="details col-md-6">
+                <h3 class="product-title">${offer.titre}</h3>
+                <div class="rating">
+                    <span class="review-no"><i class="fa fa-user">${offer.userFirstName}</i> </span>
+                </div>
+                <p class="product-description">${offer.description}</p>
+                <p class="vote" style="margin-top: 10px;">
+                    <i class="fa fa-clock-o" aria-hidden="true" > </i>
+                </p>
+                <div class="vote">
+                    <i class="fa fa-street-view" aria-hidden="true"> ${City[offer.city]} </i>
+                    <span style="margin-left: 10px;"></span>
+                    <i class="fa fa-tag" aria-hidden="true"> ${Category[offer.category]} </i>
+                </div>
+                <button id="addClass" class="btn btn-primary">
+                    <i class="fa fa-commenting fa-lg" aria-hidden="true"></i>
+                </button>
+                <div class="action" style="margin-top: 10px;">
+                    <a class="add-to-cart btn btn-default"  type="button" href="rem?afav=${offer.offerId}">ajouter à ma liste de suivi</a>
+                    <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--<%&#45;&#45;<div class="row">&#45;&#45;%>-->
+<!--    <%&#45;&#45;    <div class="col-sm-3"></div>&#45;&#45;%>-->
+<!--    <%&#45;&#45;    <div class="col-sm-6">&#45;&#45;%>-->
+
+<!--        <%&#45;&#45;        <p>&#45;&#45;%>-->
+<!--            <%&#45;&#45;         <H1> ${offer.titre}</H1>&#45;&#45;%>-->
+<!--        <%&#45;&#45;            <br/>&#45;&#45;%>-->
+<!--        <%&#45;&#45;            <h2>Giver : ${offer.userFirstName}</h2>&#45;&#45;%>-->
+<!--        <%&#45;&#45;        <c:if test="${!empty offer.photos}"> <img src="uploads/${offer.photos[0].getPathToImage()}" class="w-100" />&#45;&#45;%>-->
+<!--            <%&#45;&#45;            <a href="#!">&#45;&#45;%>-->
+<!--                <%&#45;&#45;                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>&#45;&#45;%>-->
+<!--                <%&#45;&#45;            </a>&#45;&#45;%>-->
+<!--            <%&#45;&#45;        </c:if>&#45;&#45;%>-->
+<!--        <%&#45;&#45;    <h2>Description : </h2>   ${offer.description}&#45;&#45;%>-->
+<!--        <%&#45;&#45;        </p>&#45;&#45;%>-->
+
+
+
+<!--        <%&#45;&#45;        &lt;!&ndash; chat pop up button&ndash;&gt;&#45;&#45;%>-->
+<!--        <%&#45;&#45;        <button id="addClass" class="btn btn-primary">&#45;&#45;%>-->
+<!--            <%&#45;&#45;            <i class="fa fa-commenting fa-lg" aria-hidden="true"></i>&#45;&#45;%>-->
+<!--            <%&#45;&#45;        </button>&#45;&#45;%>-->
+
+<!--        <%&#45;&#45;        <c:forEach items="${chat}" var="message" >&#45;&#45;%>-->
+<!--            <%&#45;&#45;                    ${message.message}&#45;&#45;%>-->
+<!--            <%&#45;&#45;        </c:forEach>&#45;&#45;%>-->
+
+<!--        <%&#45;&#45;    </div>&#45;&#45;%>-->
+<!--    <%&#45;&#45;    <div class="col-sm-3"></div>&#45;&#45;%>-->
+<!--    <%&#45;&#45;</div>&#45;&#45;%>-->
+
+
+<!-- chat pop up button-->
+
+
+
+
+<%@ include file="chat.jsp" %>
+
+
+
+        <footer th:replace="layout :: footer_html">
+        </footer>
+        <div th:replace="layout :: js_scripts_html">
+        </div>
+    </body>
+</html>
