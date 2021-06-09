@@ -11,7 +11,7 @@
     <groupId>com.joffre</groupId>
     <artifactId>joffre-spring</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>joffre-spring</name>
     <description>Demo project for Spring Boot</description>
     <properties>
@@ -64,6 +64,7 @@
                 <version> ${project.parent.version}</version>
             </plugin>
         </plugins>
+        <finalName>Joffre-final</finalName>
     </build>
 
 </project>
