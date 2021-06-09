@@ -36,8 +36,8 @@
                     <div class="form-group ">
                         <label for="city">Ville d'offre</label>
                         <select id="city" class="form-control" name="city" th:attr="value=#{offer.city}">
-                        <span th:each="ville : ${City}">
-                            <option value="${status.index}">${ville}</option>
+                        <span th:each="city, status : ${City}">
+                            <option th:value="${status.index}" th:text="${city}"></option>
                         </span>
                         </select>
                         <span class="erreur" th:text=#{form.errors["city"]}></span>
@@ -47,8 +47,8 @@
                     <div class="form-group ">
                         <label for="category">Catégorie</label>
                         <select id="category" class="form-control" name="category" th:attr="value=#{offer.category}">
-                        <span th:each="category : ${Category}">
-                            <option value="${status.index}">${category}</option>
+                        <span th:each="category, status : ${Category}">
+                            <option th:value="${status.index}" th:text="${category}"></option>
                         </span>
                         </select>
                         <span class="erreur">${form.errors['category']}</span>

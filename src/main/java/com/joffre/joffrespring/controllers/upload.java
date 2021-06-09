@@ -1,20 +1,26 @@
 package com.joffre.joffrespring.controllers;
 
 import com.joffre.joffrespring.entities.Offre;
-import com.sun.org.apache.xpath.internal.operations.Mod;
+import com.joffre.joffrespring.services.StorageService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import static com.joffre.joffrespring.util.SharedEnums.Category;
 import static com.joffre.joffrespring.util.SharedEnums.City;
 
 @Controller
 public class upload {
+
+    private final StorageService storageService;
+
+    @Autowired
+    public Upload(StorageService storageService) {
+        this.storageService = storageService;
+    }
+
 
     @GetMapping("/upload")
     public String upload(Model model){
@@ -26,8 +32,24 @@ public class upload {
     }
 
     @PostMapping("/upload")
-    public String submit(@ModelAttribute Offre offer, Model model){
+    public String submit(@RequestParam("file") MultipartFile file,
+                         RedirectAttributes redirectAttributes){
+
         model.addAttribute("offer", offer);
         return "upload";
     }
+
+
+        storageService.store(file);
+        redirectAttributes.addFlashAttribute("message",
+                "You successfully uploaded " + file.getOriginalFilename() + "!");
+
+        return "redirect:/";
+    }
+
+    @ExceptionHandler(StorageFileNotFoundException.class)
+    public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
+        return ResponseEntity.notFound().build();
+    }
+
 }
