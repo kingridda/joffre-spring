@@ -10,4 +10,5 @@ public class JoffreSpringApplication {
         SpringApplication.run(JoffreSpringApplication.class, args);
     }
 
+
 }
