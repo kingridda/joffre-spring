@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.nio.file.Path;
 import java.util.stream.Stream;
 
+//Service implementation inside storage package
 public interface StorageService {
 
     void init();
