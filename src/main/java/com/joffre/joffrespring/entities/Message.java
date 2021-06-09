@@ -8,7 +8,7 @@ public class Message {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long messageId;
 
     private Timestamp dateMessage;

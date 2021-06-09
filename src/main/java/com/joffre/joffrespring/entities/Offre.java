@@ -9,7 +9,7 @@ import java.util.List;
 public class Offre implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long offerId;
     private String titre;
     private Timestamp date;
