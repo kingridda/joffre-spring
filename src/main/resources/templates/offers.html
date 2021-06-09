@@ -54,7 +54,7 @@
                                             <div class="col-md-12">
                                                 <p th:text="${offer.description}"></p>
                                                 <div class="d-flex justify-content-between mt-5">
-                                                    <i class="fa fa-clock-o" aria-hidden="true" th:text="${ #dates.format(offer.date, 'dd-MMM-yyyy') }"> </i>
+                                                    <i class="fa fa-clock-o" aria-hidden="true" th:text=" ${ #dates.format(offer.date, 'HH:mm dd-MMM-yyyy') }"> </i>
                                                     <span style="margin-left: 20%;"></span>
                                                     <i class="fa fa-street-view" aria-hidden="true" th:text="${City[offer.city]}"> </i>
                                                     <i class="fa fa-tag" aria-hidden="true" th:text="${Category[offer.category]}"> </i>

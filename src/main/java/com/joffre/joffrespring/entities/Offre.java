@@ -1,5 +1,8 @@
 package com.joffre.joffrespring.entities;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -12,7 +15,10 @@ public class Offre implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long offerId;
     private String titre;
+
+    @CreationTimestamp
     private Timestamp date;
+
     private String description;
     private Integer city;
     private Integer category;

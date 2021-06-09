@@ -1,5 +1,7 @@
 package com.joffre.joffrespring.entities;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -11,7 +13,9 @@ public class Message {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long messageId;
 
+    @CreationTimestamp
     private Timestamp dateMessage;
+
     private String message;
 
     @ManyToOne

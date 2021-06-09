@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.sql.Timestamp;
 import java.util.*;
 
 @Service
@@ -92,6 +93,8 @@ public class OffreFormService {
         return result;
     }
 
+
+
     //validate field description
     private void validateDescription( String description ) throws Exception {
         if ( description != null ) {
@@ -141,5 +144,6 @@ public class OffreFormService {
 
         return generatedString;
     }
+
 
 }
