@@ -1,6 +1,7 @@
 package com.joffre.joffrespring.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 
@@ -8,6 +9,7 @@ import java.io.Serializable;
 public class Image implements Serializable {
 
     @Id
+    @GeneratedValue
     private Long   imageId;
     private Long   offerId;
     private String pathToImage;

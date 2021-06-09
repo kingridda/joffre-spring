@@ -1,7 +1,6 @@
 package com.joffre.joffrespring.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
@@ -10,14 +9,19 @@ import java.util.List;
 public class Offre implements Serializable {
 
     @Id
+    @GeneratedValue
     private Long offerId;
     private String titre;
     private Timestamp date;
     private String description;
     private Integer city;
     private Integer category;
-    private String idUser;
-    private String userFirstName;
+
+
+    @ManyToOne
+    private User user;
+    @OneToMany
+    private List<Image> images;
 
     public Integer getCity() {
         return city;
@@ -42,14 +46,6 @@ public class Offre implements Serializable {
         super();
     }
 
-    public String getUserFirstName() {
-        return userFirstName;
-    }
-
-    public void setUserFirstName(String userFirstName) {
-        this.userFirstName = userFirstName;
-    }
-
     public String getUserLastName() {
         return userLastName;
     }
@@ -66,13 +62,6 @@ public class Offre implements Serializable {
         this.score = score;
     }
 
-    public String getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(String idUser) {
-        this.idUser = idUser;
-    }
 
     public Long getOfferId() {
         return offerId;
@@ -107,6 +96,11 @@ public class Offre implements Serializable {
     }
 
 
+    public User getUser() {
+        return user;
+    }
 
-
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

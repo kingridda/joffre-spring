@@ -1,36 +1,26 @@
 package com.joffre.joffrespring.entities;
 
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Message implements Serializable {
+public class Message {
 
 
     @Id
-    Long messageId;
-    String senderId;
-    String receiverId;
-    Timestamp dateMessage;
-    String message;
+    @GeneratedValue
+    private Long messageId;
+    private Timestamp dateMessage;
+    private String message;
+
+    @ManyToOne
+    private User sender;
+    @ManyToOne
+    private User receiver;
 
     public Message(){super();}
 
-    public String getSenderId() {
-        return senderId;
-    }
 
-    public void setSenderId(String senderId) {
-        this.senderId = senderId;
-    }
-
-    public String getReceiverId() {
-        return receiverId;
-    }
-
-    public void setReceiverId(String receiverId) {
-        this.receiverId = receiverId;
-    }
 
     public Long getMessageId() { return messageId; }
 
@@ -52,5 +42,21 @@ public class Message implements Serializable {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public User getSender() {
+        return sender;
+    }
+
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
+
+    public User getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(User receiver) {
+        this.receiver = receiver;
     }
 }

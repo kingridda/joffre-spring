@@ -1,8 +1,8 @@
 package com.joffre.joffrespring.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class User implements Serializable {
@@ -10,6 +10,14 @@ public class User implements Serializable {
     @Id
     private String idUser;
     private String username;
+
+    @OneToMany
+    private List<Offre> offers;
+
+//    TODO: solve this issue
+//    @OneToMany
+//    private List<Message> messages;
+
 
 
     public String getIdUser() {
@@ -27,4 +35,20 @@ public class User implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public List<Offre> getOffers() {
+        return offers;
+    }
+
+    public void setOffers(List<Offre> offers) {
+        this.offers = offers;
+    }
+
+//    public List<Message> getMessages() {
+//        return messages;
+//    }
+//
+//    public void setMessages(List<Message> messages) {
+//        this.messages = messages;
+//    }
 }
