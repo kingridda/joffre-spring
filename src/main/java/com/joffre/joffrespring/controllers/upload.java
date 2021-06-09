@@ -1,7 +1,6 @@
 package com.joffre.joffrespring.controllers;
 
 import com.joffre.joffrespring.entities.Offre;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
