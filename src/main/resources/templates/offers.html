@@ -41,7 +41,7 @@
                                 <!--l'offre-->
                                 <div th:if="${offer.images}" class="bg-image hover-overlay ripple shadow-1-strong rounded"
                                      data-mdb-ripple-color="light">
-                                        <img src="uploads/${offer.photos[0].getPathToImage()}" class="w-100" />
+                                        <img th:src="uploads/${offer.images[0].getPathToImage()}" class="w-100" />
                                         <a href="#!">
                                             <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
                                         </a>
@@ -54,10 +54,10 @@
                                             <div class="col-md-12">
                                                 <p th:text="${offer.description}"></p>
                                                 <div class="d-flex justify-content-between mt-5">
-                                                    <i class="fa fa-clock-o" aria-hidden="true">  <fmt:formatDate value="${offer.date}" pattern="dd/MM/yyyy HH:mm"/></i>
+                                                    <i class="fa fa-clock-o" aria-hidden="true" th:text="${ #dates.format(offer.date, 'dd-MMM-yyyy') }"> </i>
                                                     <span style="margin-left: 20%;"></span>
-                                                    <i class="fa fa-street-view" aria-hidden="true"> ${City[offer.city]} </i>
-                                                    <i class="fa fa-tag" aria-hidden="true"> ${Category[offer.category]} </i>
+                                                    <i class="fa fa-street-view" aria-hidden="true" > </i>
+                                                    <i class="fa fa-tag" aria-hidden="true" th:text="${Category[offer.category]}"> </i>
                                                 </div>
                                             </div>
                                         </div>
