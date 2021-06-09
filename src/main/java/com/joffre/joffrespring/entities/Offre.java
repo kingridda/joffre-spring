@@ -103,4 +103,12 @@ public class Offre implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
 }
