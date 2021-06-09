@@ -14,9 +14,12 @@ public class User implements Serializable {
     @OneToMany
     private List<Offre> offers;
 
-//    TODO: solve this issue
-//    @OneToMany
-//    private List<Message> messages;
+    @OneToMany
+    private List<Message> sentMessages;
+
+    @OneToMany
+    private List<Message> receivedMessages;
+
 
 
 

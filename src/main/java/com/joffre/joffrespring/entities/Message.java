@@ -1,22 +1,24 @@
 package com.joffre.joffrespring.entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.sql.Timestamp;
 
+@Entity
 public class Message {
 
 
     @Id
     @GeneratedValue
     private Long messageId;
+
     private Timestamp dateMessage;
     private String message;
 
     @ManyToOne
-    private User sender;
+    private User toUser;
+
     @ManyToOne
-    private User receiver;
+    private User fromUser;
 
     public Message(){super();}
 
@@ -44,19 +46,20 @@ public class Message {
         this.message = message;
     }
 
-    public User getSender() {
-        return sender;
+
+    public User getFromUser() {
+        return fromUser;
     }
 
-    public void setSender(User sender) {
-        this.sender = sender;
+    public void setFromUser(User fromUser) {
+        this.fromUser = fromUser;
     }
 
-    public User getReceiver() {
-        return receiver;
+    public User getToUser() {
+        return toUser;
     }
 
-    public void setReceiver(User receiver) {
-        this.receiver = receiver;
+    public void setToUser(User toUser) {
+        this.toUser = toUser;
     }
 }
