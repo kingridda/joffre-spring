@@ -35,7 +35,7 @@ public class offers {
         model.addAttribute("offer", new Offre());
         model.addAttribute("City", City);
         model.addAttribute("Category", Category);
-        return ""+offerId;
+        return "offerDetail";
     }
 
 }
