@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
+
 import static com.joffre.joffrespring.util.SharedEnums.Category;
 import static com.joffre.joffrespring.util.SharedEnums.City;
 
 @Controller
 public class Upload {
 
+    @Autowired
+    private HttpSession session;
 
     @Autowired
     private OffreFormService offreFormService;
@@ -27,6 +31,8 @@ public class Upload {
     @GetMapping("/upload")
     public String upload(Model model){
 
+
+        model.addAttribute("user", session.getAttribute("user"));
         model.addAttribute("form", offreFormService);
         model.addAttribute("City", City);
         model.addAttribute("Category", Category);
@@ -45,6 +51,7 @@ public class Upload {
             return "redirect:/";
         }else{
 
+            model.addAttribute("user", session.getAttribute("user"));
             model.addAttribute("form", offreFormService);
             model.addAttribute("City", City);
             model.addAttribute("Category", Category);

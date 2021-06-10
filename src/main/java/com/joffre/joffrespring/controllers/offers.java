@@ -28,10 +28,11 @@ public class offers {
     public String offers(Model model){
 
 
+        model.addAttribute("user", session.getAttribute("user"));
         model.addAttribute("offers", offerService.list());
         model.addAttribute("City", City);
         model.addAttribute("Category", Category);
-        return "offers";
+        return "offersg";
     }
 
     @RequestMapping(value = "/offers/{offerId}")
@@ -41,6 +42,7 @@ public class offers {
         Offre offer = offerService.getById(offerId);
         offer.setUser(user);
 
+        model.addAttribute("user", user);
         model.addAttribute("offer", offer );
         model.addAttribute("City", City);
         model.addAttribute("Category", Category);
