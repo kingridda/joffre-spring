@@ -2,14 +2,16 @@ package com.joffre.joffrespring.services;
 
 import com.joffre.joffrespring.dao.ImageRepository;
 import com.joffre.joffrespring.dao.OffreRepository;
+import com.joffre.joffrespring.dao.UserRepository;
 import com.joffre.joffrespring.entities.Image;
 import com.joffre.joffrespring.entities.Offre;
+import com.joffre.joffrespring.entities.User;
 import com.joffre.joffrespring.storage.StorageException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.sql.Timestamp;
+import javax.servlet.http.HttpSession;
 import java.util.*;
 
 @Service
@@ -31,6 +33,8 @@ public class OffreFormService {
     private OffreRepository offreRepository;
     @Autowired
     private ImageRepository imageRepository;
+
+
 
     private final StorageService storageService;
 
@@ -59,18 +63,24 @@ public class OffreFormService {
             setError( FIELD_DESCRIPTION, e.getMessage() );
         }
 
-
-//            try{
-//                if(user == null){
-//                    throw new Exception( "authentication error" );
-//            } catch ( Exception e ) {
+//        try{
+//            sessionUser = (User) session.getAttribute(FIELD_USER);
+//            if( sessionUser.getIdUser() != null){
+//                user = userRepository.getById( sessionUser.getIdUser() );
+//            }
+//            else
+//                throw new Exception( "authentication error" );
+//
+//        }catch( Exception e ) {
 //                setError( FIELD_USER, e.getMessage() );
 //            }
+
 
         Image image = new Image();
         List<Image> images = new ArrayList<>();
         image.setPathToImage( random_java8_string(RANDOM_FILENAME_LEN) + file.getOriginalFilename() );
         images.add(image);
+
         try {
             if( errors.isEmpty() )
                 storageService.store(file,  image.getPathToImage());

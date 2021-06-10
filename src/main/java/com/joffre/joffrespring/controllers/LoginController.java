@@ -1,6 +1,7 @@
 package com.joffre.joffrespring.controllers;
 
 
+import com.joffre.joffrespring.dao.UserRepository;
 import com.joffre.joffrespring.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,12 +18,13 @@ public class LoginController {
     //TODO: refactor this trick to real login when u can
     @Autowired
     private HttpSession session;
+    @Autowired
+    private UserRepository userRepository;
 
 
     @PostMapping(value = "/login")
     public String loginUser(RedirectAttributes redirectAttributes){
         User user = new User();
-
         user.setIdUser("00000000");
         user.setUsername("Benn Beckman");
         session.setAttribute("user", user);
