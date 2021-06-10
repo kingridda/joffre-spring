@@ -18,9 +18,9 @@
             <div class="preview col-md-6">
                 <div class="preview-pic tab-content">
                     <div class="tab-pane active" id="pic-1">
-                        <dev th:if="${!#lists.isEmpty(offer.images) }">
+                        <div th:if="${!#lists.isEmpty(offer.images) }">
                             <img th:src="'uploads/'+${offer.images[0].getPathToImage()}" class="w-100"/>
-                        </dev>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -36,9 +36,9 @@
                     <i class="fa fa-clock-o" aria-hidden="true" th:text="${ #dates.format(offer.date, 'HH:mm dd-MMM-yyyy') }"> </i>
                 </p>
                 <div class="vote">
-                    <i class="fa fa-street-view" aria-hidden="true" th:text="${City[offer.city]}">  </i>
+                    <i class="fa fa-street-view" aria-hidden="true" th:text="#{City[offer.city]}">  </i>
                     <span style="margin-left: 10px;"></span>
-                    <i class="fa fa-tag" aria-hidden="true" th:text="${Category[offer.category]}"> </i>
+                    <i class="fa fa-tag" aria-hidden="true" th:text="#{Category[offer.category]}"> </i>
                 </div>
                 <button id="addClass" class="btn btn-primary">
                     <i class="fa fa-commenting fa-lg" aria-hidden="true"></i>
