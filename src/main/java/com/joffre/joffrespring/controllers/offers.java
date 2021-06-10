@@ -8,8 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+
+import java.util.Optional;
 
 import static com.joffre.joffrespring.util.SharedEnums.Category;
 import static com.joffre.joffrespring.util.SharedEnums.City;
@@ -25,15 +28,26 @@ public class offers {
     private HttpSession session;
 
     @RequestMapping(value = "/offers")
-    public String offers(Model model){
+    public String offers(@RequestParam("category") Optional<Integer> category,
+                         @RequestParam("city") Optional<Integer> city,
+                         Model model){
 
+        if(category.isPresent()){
+            model.addAttribute("offers", offerService.listByCategory(category.get()));
 
+        }else if(city.isPresent()){
+            model.addAttribute("offers", offerService.listByCity(city.get()));
+        }
+        else{
+            model.addAttribute("offers", offerService.list());
+        }
         model.addAttribute("user", session.getAttribute("user"));
-        model.addAttribute("offers", offerService.list());
         model.addAttribute("City", City);
         model.addAttribute("Category", Category);
-        return "offersg";
+        return "offers";
     }
+
+
 
     @RequestMapping(value = "/offers/{offerId}")
     public String offer(@PathVariable long offerId , Model model){
