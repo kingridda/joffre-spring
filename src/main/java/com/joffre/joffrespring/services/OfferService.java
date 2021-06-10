@@ -17,7 +17,11 @@ public class OfferService {
         return offreRepository.findAll();
     }
 
-    public List<Offre> getBy(String id) {
+    public Offre getById(Long id){
+        return offreRepository.getById(id);
+    }
+
+    public List<Offre> getByUser(String id) {
         List<Offre> offers = new ArrayList<>();
 
         offreRepository.findByUserIdUser(id)

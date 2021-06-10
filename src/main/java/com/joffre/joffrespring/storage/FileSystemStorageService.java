@@ -96,6 +96,7 @@ public class FileSystemStorageService implements StorageService {
     @Override
     public void init() throws StorageException{
         try {
+            if(!Files.exists(rootLocation))
             Files.createDirectories(rootLocation);
         }
         catch (IOException e) {
