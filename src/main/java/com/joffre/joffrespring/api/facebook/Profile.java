@@ -1,8 +1,8 @@
 package com.joffre.joffrespring.api.facebook;
-
-import lombok.Data;
-
-@Data
+//
+//import lombok.Data;
+//
+//@Data
 public class Profile {
 
     private String id;
