@@ -41,7 +41,6 @@ public class offers {
         Offre offer = offerService.getById(offerId);
         offer.setUser(user);
 
-
         model.addAttribute("offer", offer );
         model.addAttribute("City", City);
         model.addAttribute("Category", Category);

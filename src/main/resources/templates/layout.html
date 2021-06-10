@@ -13,6 +13,9 @@
     <link th:href="@{/css/header.css}" rel="stylesheet" >
     <link th:href="@{/css/index.css}" rel="stylesheet" >
     <link th:href="@{/css/upload.css}" rel="stylesheet" >
+    <link th:href="@{/css/offerDetail.css}" rel="stylesheet" >
+    <link th:href="@{/css/chat.css}" rel="stylesheet" >
+    <link th:href="@{/css/profile.css}" rel="stylesheet" >
 
 
     <title>J'Offre</title>
@@ -70,7 +73,7 @@
                     <div id="fb-root"></div>
                     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v11.0&appId=3286155231619263&autoLogAppEvents=1" nonce="TRRZNcD4"></script>
                     <p> <span id="name"></span> </p>
-                    <form method="POST" action="login">
+                    <form method="POST" action="/login">
                         <input type="hidden" id="username" name="username"  />
                         <input type="hidden" id="idUser" name="idUser"  />
                         <button type="submit button" class="btn btn-default btn-circle btn-outline" >Continuer...</button>

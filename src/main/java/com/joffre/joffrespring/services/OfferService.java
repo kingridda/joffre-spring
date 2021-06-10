@@ -14,7 +14,10 @@ public class OfferService {
     private OffreRepository offreRepository;
 
     public List<Offre> list() {
-        return offreRepository.findAll();
+        return offreRepository.findAllByOrderByDateDesc();
+    }
+    public List<Offre> listByCity() {
+        return offreRepository.findAllByOrderByDateDesc();
     }
 
     public Offre getById(Long id){
