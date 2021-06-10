@@ -1,5 +1,6 @@
 package com.joffre.joffrespring.controllers;
 
+import com.joffre.joffrespring.entities.Offre;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +14,7 @@ public class offer {
     @RequestMapping(value = "/offer")
     public String offer(Model model){
 
-
+        model.addAttribute("offer", new Offre());
         model.addAttribute("City", City);
         model.addAttribute("Category", Category);
         return "offerDetail";
