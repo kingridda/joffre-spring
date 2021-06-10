@@ -18,25 +18,25 @@
             <div class="preview col-md-6">
                 <div class="preview-pic tab-content">
                     <div class="tab-pane active" id="pic-1">
-                        <dev th:if="#{!empty offer.photos}">
-                            <img src="uploads/${offer.photos[0].getPathToImage()}" class="w-100"/>
+                        <dev th:if="${!#lists.isEmpty(offer.images) }">
+                            <img th:src="'uploads/'+${offer.images[0].getPathToImage()}" class="w-100"/>
                         </dev>
                     </div>
                 </div>
             </div>
             <div class="details col-md-6">
-                <h3 class="product-title">${offer.titre}</h3>
+                <h3 class="product-title" th:text="${offer.titre}"></h3>
                 <div class="rating">
-                    <span class="review-no"><i class="fa fa-user">${offer.userFirstName}</i> </span>
+                    <span class="review-no" th:if="${offer.user}"><i class="fa fa-user" th:text="${offer.user.username}"></i> </span>
                 </div>
-                <p class="product-description">${offer.description}</p>
+                <p class="product-description" th:text="${offer.description}"></p>
                 <p class="vote" style="margin-top: 10px;">
-                    <i class="fa fa-clock-o" aria-hidden="true" > </i>
+                    <i class="fa fa-clock-o" aria-hidden="true" th:text="${ #dates.format(offer.date, 'HH:mm dd-MMM-yyyy') }"> </i>
                 </p>
                 <div class="vote">
-                    <i class="fa fa-street-view" aria-hidden="true"> ${City[offer.city]} </i>
+                    <i class="fa fa-street-view" aria-hidden="true" th:text="${City[offer.city]}">  </i>
                     <span style="margin-left: 10px;"></span>
-                    <i class="fa fa-tag" aria-hidden="true"> ${Category[offer.category]} </i>
+                    <i class="fa fa-tag" aria-hidden="true" th:text="${Category[offer.category]}"> </i>
                 </div>
                 <button id="addClass" class="btn btn-primary">
                     <i class="fa fa-commenting fa-lg" aria-hidden="true"></i>
